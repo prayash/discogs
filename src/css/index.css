@@ -1,0 +1,44 @@
+body,
+html {
+  padding: 0;
+  background-color: #222;
+}
+
+body {
+  font-family: 'Roboto', 'Helvetica', 'Avenir', 'Arial', sans-serif;
+  line-height: 1.4em;
+  color: #EBEBEB;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300;
+}
+
+#container {
+  width: 100%;
+  padding: 1em;
+}
+
+ul.releases {
+  list-style-type: none;
+  text-align: left;
+  position: relative;
+  display: block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+
+li.release {
+  padding: 0.5em;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  margin: 5px 0;
+}
+
+.title {
+  font-size: 1.25em;
+}
+
+.artist {
+  font-size: 1em;
+}

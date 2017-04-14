@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import { apiService } from '../services';
 import Release from './Release';
 
-class App extends Component {
+class Application extends Component {
 
-  state = {
-    pagination: null,
-    releases: null
+  constructor() {
+    super();
+    this.setState({
+      pagination: null,
+      releases: null
+    });
   }
 
   componentWillMount() {
@@ -53,4 +56,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Application;

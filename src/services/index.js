@@ -41,7 +41,7 @@ export const apiService = {
   fetchImage() {
      return api.get(RELEASE_URL)
       .then((res) => {
-        console.log(res.data.images[0]);
+        // console.log(res.data.images[0]);
         return res.data.images[0].uri
       })
       .catch((err) => {

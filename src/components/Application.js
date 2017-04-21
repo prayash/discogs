@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { apiService } from '../services';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as Actions from '../actions';
 
 import Header from './Header';
 import LeftNav from './LeftNav';
@@ -8,60 +10,20 @@ import Shelves from './Shelves';
 class Application extends Component {
 
   componentWillMount() {
-    // Only hit the API if the data isn't already stored in localStorage!
-    if (!localStorage.getItem('releases')) {
-      let fetch = apiService.fetchCollection();
-      fetch.then((data) => {
-        this.setState({
-          pagination: data.pagination,
-          releases: data.releases
-        });
-      });
-    } else {
-      const pagination = JSON.parse(localStorage.getItem('pagination'));
-      const releases = JSON.parse(localStorage.getItem('releases'));
-      this.setState({
-        pagination: pagination,
-        releases: releases
-      });
-    }
+    this.props.actions.fetchReleasess();
+  }
+
+  addShelf = (e) => {
+    this.props.actions.addShelf();
   }
 
   render() {
-    let lists = [
-      {
-        id: 'Discogs API',
-        rows: []
-      }, {
-        id: 'SHELF 1',
-        rows: [
-          {id: 'item#5', content: "MOAR"},
-          {id: 'item#6', content: "MOAR"},
-          {id: 'item#7', content: "MOAR"},
-          {id: 'item#8', content: "MOAR"}
-        ]
-      }
-    ];
-
-    if (this.state.releases) {
-      const { releases } = this.state;
-      const objects = releases.map(release =>
-        ({
-          id: release.id,
-          content: (
-            <div className="release">
-              <div className='heavy'>{release.basic_information.title}</div>
-              <div className='light'>{release.basic_information.artists[0].name}</div>
-            </div>
-          ),
-          artist: release.basic_information.artists[0].name
-        })
-      )
-
-      lists[0].rows = objects;
+    let shelves;
+    if (this.props.shelves.length > -1) {
+      shelves = <Shelves data={this.props.shelves} onClick={this.addShelf} />;
     }
 
-    // console.log(lists);
+    console.info('State:', this.props.state)
 
     return (
       <div id='app' className='fade-in'>
@@ -70,7 +32,7 @@ class Application extends Component {
           <Header />
           <div className='flex-container'>
             <LeftNav />
-            <Shelves lists={lists} />
+            { shelves }
           </div>
 
         </div>
@@ -79,4 +41,15 @@ class Application extends Component {
   }
 }
 
-export default Application;
+const mapStateToProps = (state) => {
+  return {
+    state: state,
+    shelves: state.shelves
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(Actions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Application);

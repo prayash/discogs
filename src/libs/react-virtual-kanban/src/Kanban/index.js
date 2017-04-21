@@ -140,6 +140,8 @@ class Kanban extends Component {
         moveList={this.onMoveList}
         dropRow={this.onDropRow}
         dropList={this.onDropList}
+        editShelf={this.props.onEditShelf}
+        doneEditingShelf={this.props.onDoneEditingShelf}
         overscanRowCount={this.props.overscanRowCount}
         itemCacheKey={this.props.itemCacheKey}
       />
@@ -159,8 +161,12 @@ class Kanban extends Component {
       scrollToAlignment,
     } = this.props;
 
+    const divStyle = {
+      width: width
+    };
+
     return (
-      <div>
+      <div style={divStyle}>
         <GridWithScrollZone
           lists={lists}
           className='KanbanGrid'
@@ -181,6 +187,7 @@ class Kanban extends Component {
           verticalStrength={() => {}}
           speed={100}
         />
+
         <DragLayer
           itemPreviewComponent={itemPreviewComponent}
           listPreviewComponent={listPreviewComponent}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = '/users/blacklight/collection/folders/0/releases';
+const API_URL = '/users/blacklight/collection/folders/0/releases?page=1&per_page=100';
+
 const RELEASE_URL = '/releases/198657';
 
 let api = axios.create({

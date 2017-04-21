@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { VirtualKanban } from '../libs/react-virtual-kanban/src';
 import { apiService } from '../services';
 
-import logo from '../../public/img/discogs-logo.svg';
-import 'react-virtual-kanban/lib/styles.css';
+import Header from './Header';
+import LeftNav from './LeftNav';
+import Shelves from './Shelves';
 
 class Application extends Component {
 
@@ -65,50 +65,15 @@ class Application extends Component {
 
     return (
       <div id='app' className='fade-in'>
-        <section id='container'>
+        <div id='container'>
 
-          <div id='header'>
-            <div className='flex-header'>
-              <div className='logo-wrapper'>
-                <a href="http://discogs.com" className='logo'>
-                  <img src={logo} alt='discogs logo' />
-                </a>
-              </div>
-              <div className='search-wrapper'>
-                <input type='text' name='search' placeholder='Search user...' />
-              </div>
-            </div>
-          </div>
-
-          {/*{ list }*/}
-
+          <Header />
           <div className='flex-container'>
-            <div className="left-menu">
-              <ul>
-                <li>
-                  <a href="/app/main/board" className="active">
-                    <span className="icon-drawer"></span><span className="description">Board</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/app/main/todos">
-                    <span className="icon-pie-chart"></span><span className="description">To do</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div className='main-container'>
-              <VirtualKanban
-                lists={lists}
-                width={800}
-                height={580}
-                listWidth={300}
-              />
-              <br />
-            </div>
+            <LeftNav />
+            <Shelves lists={lists} />
           </div>
-        </section>
+
+        </div>
       </div>
     );
   }

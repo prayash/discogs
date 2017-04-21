@@ -1,0 +1,27 @@
+.left-nav {
+  min-width: 60px;
+  background-color: #333;
+  z-index: 1;
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.3s ease;
+
+  ul, li {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li a {
+    text-decoration: none;
+    padding: 25px 1em;
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 21px;
+  }
+
+  .description {
+    display: none;
+  }
+}

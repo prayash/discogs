@@ -1,0 +1,24 @@
+@import 'base';
+@import 'header';
+@import 'menu';
+@import 'animation';
+@import 'typography';
+
+.ListWrapper {
+  padding: 0;
+  margin: 0;
+}
+
+.ListHeader {
+  text-align: center;
+  -webkit-box-flex: 0;
+  font-family: 'Roboto';
+  flex: 0 1 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 20px auto;
+}
+
+.ListFooter {
+  display: none;
+}

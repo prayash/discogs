@@ -1,0 +1,31 @@
+body,
+html {
+  padding: 0;
+}
+
+body {
+  margin: 0 auto;
+}
+
+#app {
+  background-color: #e6e6e6;
+
+  #container {
+    width: 100%;
+
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      white-space: nowrap;
+      height: 100%;
+
+      .main-container {
+        overflow-x: auto;
+        overflow-y: auto;
+        width: 100%;
+        position: relative;
+        background-color: #E6E6E6;
+      }
+    }
+  }
+}

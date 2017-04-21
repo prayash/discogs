@@ -10,7 +10,9 @@ import Shelves from './Shelves';
 class Application extends Component {
 
   componentWillMount() {
-    this.props.actions.fetchReleasess();
+    let user ='blacklight';
+    let page = 1;
+    this.props.actions.fetchReleasess(user, page);
   }
 
   addShelf = (e) => {
@@ -23,7 +25,7 @@ class Application extends Component {
       shelves = <Shelves data={this.props.shelves} onClick={this.addShelf} />;
     }
 
-    console.info('State:', this.props.state)
+    console.info('State:', this.props.state);
 
     return (
       <div id='app' className='fade-in'>
@@ -44,6 +46,7 @@ class Application extends Component {
 const mapStateToProps = (state) => {
   return {
     state: state,
+    pagination: state.pagination,
     shelves: state.shelves
   }
 }

@@ -142,6 +142,7 @@ class Kanban extends Component {
         dropList={this.onDropList}
         editShelf={this.props.onEditShelf}
         doneEditingShelf={this.props.onDoneEditingShelf}
+        removeShelf={this.props.onRemoveShelf}
         overscanRowCount={this.props.overscanRowCount}
         itemCacheKey={this.props.itemCacheKey}
       />

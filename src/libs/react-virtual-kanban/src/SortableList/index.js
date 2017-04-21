@@ -138,7 +138,8 @@ class SortableList extends Component {
       connectDropTarget,
       listStyle,
       editShelf,
-      doneEditingShelf
+      doneEditingShelf,
+      removeShelf
     } = this.props;
 
     return (
@@ -153,6 +154,7 @@ class SortableList extends Component {
         connectDropTarget={connectDropTarget}
         editShelf={editShelf}
         doneEditingShelf={doneEditingShelf}
+        removeShelf={removeShelf}
       >
         <AutoSizer>
           {(dimensions) => this.renderList(dimensions)}

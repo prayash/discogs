@@ -3,7 +3,8 @@ import * as actions from '../constants/ActionTypes';
 import { apiService } from '../services';
 
 // Worker Saga: will be fired on TODOS_FETCH actions
-function *fetchReleases() {
+function *fetchReleases(action) {
+  console.log('hi', action.payload.user);
   try {
     // Only hit the API if the data isn't already stored in localStorage!
     if (!localStorage.getItem('releases')) {

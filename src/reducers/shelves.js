@@ -8,14 +8,14 @@ const shelves = (state = initialState, action) => {
 
     case types.ADD_SHELF:
       const shelfIndex = state.length + 1;
-      const newShelf = { id: 'SHELF #' + shelfIndex, rows: [] }
+      const newShelf = { id: 'SHELF #' + shelfIndex, rows: [] };
 
       return [
         ...state,
         newShelf
       ];
 
-    case types.EDIT_SHELF:      
+    case types.EDIT_SHELF:
       let newState = state;
       newState.forEach((obj) => {
         if (obj.id === action.payload.oldId) {
@@ -26,7 +26,8 @@ const shelves = (state = initialState, action) => {
       return newState;
     
     case types.REMOVE_SHELF:
-      return state;
+      console.log(action.payload.id);
+      return state.filter(shelf => shelf.id !== action.payload.id);
     
     case types.RELEASES_FETCH_SUCCESS:
       console.log("Fetched releases: \n", action.payload);

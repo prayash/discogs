@@ -27,6 +27,11 @@ class Shelves extends Component {
     }
   }
 
+  _removeShelfHandler = (id) => {
+    alert(id);
+    this.props.actions.removeShelf(id);
+  }
+
   update = (params) => {
     console.log(params);
   }
@@ -43,6 +48,7 @@ class Shelves extends Component {
           onDropRow={this.update}
           onEditShelf={this._editingShelfHandler}
           onDoneEditingShelf={this._doneEditingShelfHandler}
+          onRemoveShelf={this._removeShelfHandler}
         />
 
         <div className="release AddShelfButton" onClick={this._addShelfHandler}>

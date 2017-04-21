@@ -30,7 +30,8 @@ export default class List extends Component {
       isDragging,
       children,
       editShelf,
-      doneEditingShelf
+      doneEditingShelf,
+      removeShelf
     } = this.props;
 
     let listContainerClass = classnames({
@@ -50,6 +51,7 @@ export default class List extends Component {
                 onFocus={editShelf}
                 defaultValue={listId}>
               </textarea>
+              <span className='icon-close' onClick={removeShelf.bind(this, listId)}></span>
             </div>
           )}
           {connectDropTarget(

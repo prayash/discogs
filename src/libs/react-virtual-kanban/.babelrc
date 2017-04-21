@@ -1,0 +1,13 @@
+{
+  "presets": ["latest", "react"],
+  "plugins": [
+    "babel-plugin-transform-export-extensions",
+    "babel-plugin-transform-class-properties",
+    "babel-plugin-transform-object-rest-spread",
+    "babel-plugin-transform-regenerator",
+    "babel-plugin-transform-runtime",
+    "babel-plugin-transform-react-constant-elements",
+    "babel-plugin-transform-react-remove-prop-types",
+    "babel-plugin-transform-remove-console"
+  ]
+}

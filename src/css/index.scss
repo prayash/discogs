@@ -17,6 +17,23 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   margin: 18px auto;
+
+  .icon-close {
+    vertical-align: middle;
+    opacity: 0;
+    cursor: pointer;
+    // transition: opacity 200ms linear;
+
+    &:hover {
+      color: #111;
+    }
+  }
+
+  &:hover {
+    .icon-close {
+      opacity: 1;
+    }
+  }
 }
 
 .ListFooter {
@@ -34,17 +51,23 @@
   font-weight: 500;
   height: 18px;
   min-height: 18px;
-  padding: 3px 5px;
+  margin: 3px 10px;
   resize: none;
   outline: 0;
   color: #4d4d4d;
   text-transform: uppercase;
   text-align: center;
   cursor: pointer;
+  vertical-align: middle;
 
   &:focus {
     background: white;
   }
+}
+
+.loading {
+  width: 20px;
+  height: 20px;
 }
 
 .ItemContainer {
@@ -62,6 +85,7 @@
 .AddShelfButton {
   padding: 10px 15px;
   position: fixed;
+  height: 24px;
   bottom: 15px;
   right: 15px;
   width: 100px;
@@ -74,13 +98,13 @@
 
   .icon-plus {
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     vertical-align: middle;
   }
 
   .description {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 500;
     margin-left: 8px;
     vertical-align: middle;
     letter-spacing: 1px;

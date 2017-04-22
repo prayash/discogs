@@ -5,11 +5,14 @@ import * as Actions from '../actions';
 
 import { VirtualKanban } from '../libs/react-virtual-kanban/src';
 import 'react-virtual-kanban/lib/styles.css';
+import loading from '../../public/img/loading.gif';
 
 class Shelves extends Component {
 
   _addShelfHandler = (e) => {
-    this.props.onClick(e);
+    if (!this.props.state.loading) {
+      this.props.onClick(e);
+    }
   }
 
   _editingShelfHandler = (e) => {
@@ -28,7 +31,6 @@ class Shelves extends Component {
   }
 
   _removeShelfHandler = (id) => {
-    alert(id);
     this.props.actions.removeShelf(id);
   }
 
@@ -52,7 +54,15 @@ class Shelves extends Component {
         />
 
         <div className="release AddShelfButton" onClick={this._addShelfHandler}>
-          <span className='icon-plus'></span><span className='description'>Add Shelf</span>
+          {this.props.state.loading ?
+            <div>
+              <img className='loading' src={loading} alt='loading' />
+            </div>
+              :
+            <div>
+              <span className='icon-plus'></span><span className='description'>Add Shelf</span>
+            </div>
+          }
         </div>
 
         <br />

@@ -5,6 +5,13 @@
 	animation-duration: 1s;
 }
 
+.fade-in-quick {
+	opacity: 0;
+	animation: fadeIn ease-in 1;
+	animation-fill-mode: forwards;
+	animation-duration: 250ms;
+}
+
 @keyframes fadeIn { 
   from { opacity: 0; }
   to { opacity: 1; }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = '/users/blacklight/collection/folders/0/releases?page=1&per_page=100';
+const API_URL = '/users/blacklight/collection/folders/0/releases?page=';
 
 const RELEASE_URL = '/releases/198657';
 
@@ -15,14 +15,14 @@ export const apiService = {
    * @param {String} url - The API endpoint
    * @return {Promise} - an object that holds releases and pagination parameters
    */
-  fetchCollection() {
-    return api.get(API_URL)
+  fetchCollection(page) {
+    return api.get(API_URL + page + '&per_page=100')
       .then((res) => {
         const { pagination, releases } = res.data;
-        
+
         // Store fetched data into localStorage to conserve API rate limits
-        localStorage.setItem('pagination', JSON.stringify(pagination));
-        localStorage.setItem('releases', JSON.stringify(releases));
+        // localStorage.setItem('pagination', JSON.stringify(pagination));
+        // localStorage.setItem('releases', JSON.stringify(releases));
 
         return {
           pagination: pagination,

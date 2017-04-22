@@ -11,6 +11,13 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+  }
+
+  li {
+    &:hover {
+      .icon { color: #EBEBEB; }
+    }
   }
 
   li a {
@@ -19,6 +26,14 @@
     display: block;
     color: rgba(255, 255, 255, 0.8);
     font-size: 21px;
+
+    .icon {
+      color: gray;
+      
+      &.active {
+        color: #EBEBEB;
+      }
+    }
   }
 
   .description {

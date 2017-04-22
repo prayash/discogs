@@ -40,11 +40,11 @@ export default class List extends Component {
     });
 
     return (
-      <div className='ListWrapper' style={listStyle}>
+      <div className='ListWrapper fade-in-quick' style={listStyle}>
         <div className={listContainerClass}>
           {connectDragSource(
             <div className='ListHeader'>
-              {/*<span className='ListTitle'>{listId} ({list.rows.length})</span>*/}
+              <span style={{display: 'none'}} className='ListTitle'>{listId} ({list.rows.length})</span>
               <textarea
                 className='ListTitle'
                 onKeyDown={doneEditingShelf}

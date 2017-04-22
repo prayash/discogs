@@ -1,4 +1,3 @@
-import React from 'react';
 import * as types from '../constants/ActionTypes';
 
 const initialState = {}
@@ -6,7 +5,7 @@ const initialState = {}
 const pagination = (state = initialState, action) => {
   switch (action.type) {
 
-    case types.RELEASES_FETCH_SUCCESS:
+    case types.ADD_SHELF:
       return action.payload.pagination;
 
     default:

@@ -56,11 +56,6 @@ export default class List extends Component {
           )}
           {connectDropTarget(
             <div className='ListContent'>
-              {/*<div className="release">*/}
-                {/*<div className='heavy'>{list.rows.content.artist}</div>*/}
-                {/*<div className='light'>{release.basic_information.artists[0].name}</div>*/}
-              {/*</div>*/}
-              {/*{list.rows.content}*/}
               {children}
             </div>
           )}

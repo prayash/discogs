@@ -16,7 +16,7 @@ export const apiService = {
    * @return {Promise} - an object that holds releases and pagination parameters
    */
   fetchCollection(page) {
-    return api.get(API_URL + page + '&per_page=100')
+    return api.get(API_URL + page + '&per_page=25')
       .then((res) => {
         const { pagination, releases } = res.data;
 
